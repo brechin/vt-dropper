@@ -1,4 +1,5 @@
 {
   "Title" : "Dropper mod",
-  "Description" : "Adds a dropper tool"
+  "Description" : "Use F2 to build what's under the cursor.",
+  "PublishedFileId": 2484965307
 }

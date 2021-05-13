@@ -42,21 +42,26 @@ namespace Dropper
                 // Inspect the state of the UI to get the building under the cursor
                 var building = GameUI.Current.BuildingUnderCursor;
                 Debug.Log(building);
+                if (building == null)
+                    return;
 
                 // If the building belongs to the player's company
                 if (building.Company == Company.Current)
                 {
                     // Fetch the building recipe by its asset_id
                     BuildingRecipe buildingRecipe = BuildingRecipeManager.Current.Get(building.AssetId);
+                    _logger.Log("Selected: " + building);
 
                     // Get the BuilderTool to begin placing a copy of the selected building 
                     BuilderTool builderTool = BuilderToolManager.Current.GetTool(buildingRecipe);
+                    _logger.Log("Tool: " + builderTool);
 
                     // Set the tool as the currently-selected tool
                     UIManager.Current.SetTool(builderTool);
 
                     // Enter the placement mode of the tool
                     builderTool.Activate();
+                    _logger.Log("Tool activated");
                 }
             }
         }
