@@ -1,5 +1,5 @@
 {
   "Title" : "Dropper mod",
-  "Description" : "Use F2 to build what's under the cursor.",
+  "Description" : "Use F2 to build what's under the cursor.\n\nTODO:\n* copy additional properties of selected object\n* fix road/track copying\n* configurable hotkey\n\nOpen source, contributions welcome!\nhttps://github.com/brechin/vt-dropper",
   "PublishedFileId": 2484965307
 }

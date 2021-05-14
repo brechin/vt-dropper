@@ -15,12 +15,13 @@
             <HintPath>D:\SteamLibrary\steamapps\common\VoxelTycoon\VoxelTycoon_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
     </ItemGroup>
-<!--    <ItemGroup>-->
-<!--        <Compile Include="DropperMod.cs" />-->
-<!--    </ItemGroup>-->
     <ItemGroup>
-      <Content Include="preview.png" />
-      <Content Include="mod.json" />
+      <Content Include="preview.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="mod.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
     
 
