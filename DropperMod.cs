@@ -5,6 +5,7 @@ using VoxelTycoon.Game;
 using VoxelTycoon.Modding;
 using VoxelTycoon.Tools.Builder;
 using VoxelTycoon.UI;
+using Logger = VoxelTycoon.Logger;
 
 namespace Dropper
 {
@@ -15,7 +16,7 @@ namespace Dropper
         private readonly Hotkey _dropperHotkey = new Hotkey(KeyCode.F2);
 
         // Set up a logger that outputs nicely
-        VoxelTycoon.Logger _logger = new Logger<DropperMod>();
+        Logger _logger = new Logger<DropperMod>();
 
         protected override void Initialize()
         {
@@ -58,9 +59,6 @@ namespace Dropper
 
                     // Set the tool as the currently-selected tool
                     UIManager.Current.SetTool(builderTool);
-
-                    // Enter the placement mode of the tool
-                    builderTool.Activate();
                     _logger.Log("Tool activated");
                 }
             }
