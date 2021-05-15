@@ -14,6 +14,9 @@
         <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
             <HintPath>D:\SteamLibrary\steamapps\common\VoxelTycoon\VoxelTycoon_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
+        <Reference Include="UnityEngine.IMGUIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>D:\SteamLibrary\steamapps\common\VoxelTycoon\VoxelTycoon_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+        </Reference>
     </ItemGroup>
     <ItemGroup>
       <Content Include="preview.png">
