@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using VoxelTycoon;
 using VoxelTycoon.Buildings;
 using VoxelTycoon.Game;
@@ -19,18 +18,16 @@ namespace Dropper
         // Set the hotkey for activating the dropper
         private readonly Hotkey _dropperHotkey = new Hotkey(KeyCode.F2);
         private readonly Hotkey _qHotkey = new Hotkey(KeyCode.F4);
-        private bool _qShown = false;
-        private readonly Hotkey _debugHotkey = new Hotkey(KeyCode.F2, KeyModifier.Control);
+        private static bool _qShown;
 
         // Set up a logger that outputs nicely
-        Logger _logger = new Logger<DropperMod>();
+        readonly Logger _logger = new Logger<DropperMod>();
 
         protected override void Initialize()
         {
             // Initialize is called when your mod .dll is loaded
 
             _logger.Log("Initialized!");
-            UIManager.Current.Root.gameObject.AddComponent<DebugMod>();
         }
 
 
@@ -41,32 +38,26 @@ namespace Dropper
             _logger.Log("Dropper Mod is here!");
         }
 
-        protected void CancelCurrentTool()
+        private void CancelCurrentTool()
         {
             // Taken from VoxelTycoon.UI.UIManager.UpdateTool
             var uiManager = UIManager.Current;
-            uiManager.SetTool((ITool) null, true);
+            uiManager.SetTool(null, true);
         }
 
-        protected void ShowToolQuery()
+        private void ShowToolQuery()
         {
-            GUIHelper.Draw((Action) (() =>
+            GUIHelper.Draw(() =>
             {
                 var currentTool = UIManager.Current.Tool;
                 GUILayout.Space(50f);
-                GUILayout.TextArea(string.Format("Current Tool: {0}\n", (object) currentTool, (GUILayoutOption[]) Array.Empty<GUILayoutOption>()));
-            }));
+                GUILayout.TextArea($"Current Tool: {currentTool}\n");
+            });
         }
 
         protected override void OnUpdate()
         {
             // OnUpdate is called on every game update
-
-            if (LazyManager<InputManager>.Current.GetKeyDown(_debugHotkey))
-            {
-                DebugMod.showDebug = !DebugMod.showDebug;
-                _logger.Log("Toggled debug: " + DebugMod.showDebug);
-            }
 
             // Tool query window (useful for dev/debugging)
             if (LazyManager<InputManager>.Current.GetKeyDown(_qHotkey))
